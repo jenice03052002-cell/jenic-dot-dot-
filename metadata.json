@@ -1,0 +1,6 @@
+{
+  "name": "Quadra — Tactical Dots & Boxes",
+  "description": "A precision architectural Dots & Boxes strategy game played against an adaptive computer opponent with chain combos, tactical move analysis, and multiple grid sizes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

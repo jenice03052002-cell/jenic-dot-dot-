@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --color-aqua-primary: #1CE3DF;
+    --color-mint-analog: #1CE39B;
+    --color-azure-analog: #1C9BE3;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #05131A;
+    color: #ECFEFF;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  body[data-theme="light"] {
+    background-color: #F0FDFA;
+    color: #06283D;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Dark theme: Midnight Analogous #1CE3DF architectural drafting grid background */
+.drafting-canvas-bg {
+  background-color: #05131A;
+  background-image:
+    radial-gradient(circle at 35% 38%, rgba(28, 227, 223, 0.09) 0%, rgba(28, 155, 227, 0.05) 42%, rgba(5, 19, 26, 0) 72%),
+    linear-gradient(to right, rgba(28, 227, 223, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(28, 227, 223, 0.055) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+  transition: background-color 200ms ease;
+}
+
+/* Light theme: Daylight Architectural Vellum with analogous aqua-teal grid lines */
+[data-theme="light"] .drafting-canvas-bg,
+.drafting-canvas-bg[data-theme="light"] {
+  background-color: #F0FDFA;
+  color: #06283D;
+  background-image:
+    radial-gradient(circle at 35% 38%, rgba(28, 227, 223, 0.18) 0%, rgba(28, 155, 227, 0.08) 45%, rgba(240, 253, 250, 0) 75%),
+    linear-gradient(to right, rgba(13, 148, 136, 0.11) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(13, 148, 136, 0.11) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+}
+
+/* Light theme surface, border, and typography overrides for high-contrast daylight legibility */
+[data-theme="light"] .bg-\[\#071C26\],
+[data-theme="light"] .bg-\[\#071C26\]\/85,
+[data-theme="light"] .bg-\[\#071C26\]\/90,
+[data-theme="light"] .bg-\[\#071C26\]\/95,
+[data-theme="light"] .bg-\[\#081E28\],
+[data-theme="light"] .bg-\[\#081E28\]\/80,
+[data-theme="light"] .bg-\[\#081E28\]\/85 {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  box-shadow: 0 10px 30px rgba(8, 51, 68, 0.08);
+}
+
+[data-theme="light"] .bg-\[\#041017\]\/90,
+[data-theme="light"] .bg-\[\#041017\]\/55,
+[data-theme="light"] .bg-\[\#0D2B3A\] {
+  background-color: #E6F8F6 !important;
+}
+
+[data-theme="light"] .bg-\[\#092936\]\/90 {
+  background-color: #CCFBF1 !important;
+}
+
+[data-theme="light"] .bg-\[\#092438\]\/90 {
+  background-color: #E0F2FE !important;
+}
+
+[data-theme="light"] .bg-\[\#072628\],
+[data-theme="light"] .bg-\[\#072628\]\/90 {
+  background-color: #D1FAE5 !important;
+}
+
+[data-theme="light"] .bg-\[\#030D12\]\/85 {
+  background-color: rgba(6, 40, 61, 0.45) !important;
+  backdrop-filter: blur(4px);
+}
+
+[data-theme="light"] .border-cyan-900\/50,
+[data-theme="light"] .border-cyan-900\/60,
+[data-theme="light"] .border-cyan-900\/70,
+[data-theme="light"] .border-cyan-800,
+[data-theme="light"] .border-cyan-800\/70,
+[data-theme="light"] .border-cyan-800\/80,
+[data-theme="light"] .border-cyan-950\/80 {
+  border-color: rgba(14, 116, 144, 0.26) !important;
+}
+
+[data-theme="light"] .text-cyan-50,
+[data-theme="light"] .text-slate-100,
+[data-theme="light"] .text-cyan-100 {
+  color: #06283D !important;
+}
+
+[data-theme="light"] .text-cyan-100\/80,
+[data-theme="light"] .text-cyan-100\/85,
+[data-theme="light"] .text-cyan-200,
+[data-theme="light"] .text-cyan-200\/70,
+[data-theme="light"] .text-cyan-200\/75,
+[data-theme="light"] .text-cyan-200\/80,
+[data-theme="light"] .text-cyan-200\/90 {
+  color: #155E75 !important;
+}
+
+[data-theme="light"] .text-cyan-300\/60,
+[data-theme="light"] .text-cyan-300\/65,
+[data-theme="light"] .text-cyan-300\/70,
+[data-theme="light"] .text-cyan-300\/80,
+[data-theme="light"] .text-cyan-400\/55,
+[data-theme="light"] .text-cyan-400\/60,
+[data-theme="light"] .text-cyan-600,
+[data-theme="light"] .text-cyan-600\/70,
+[data-theme="light"] .text-cyan-600\/80,
+[data-theme="light"] .text-cyan-700 {
+  color: #0E7490 !important;
+}
+
+/* Deepen bright neon accents slightly on white cards for WCAG AA/AAA text contrast while preserving hue */
+[data-theme="light"] .text-\[\#1CE3DF\] {
+  color: #0D9488 !important;
+}
+
+[data-theme="light"] .text-\[\#1CE39B\] {
+  color: #059669 !important;
+}
+
+[data-theme="light"] .text-\[\#38B6FF\] {
+  color: #0284C7 !important;
+}
+
+[data-theme="light"] .text-\[\#70F3F0\]\/80 {
+  color: #0F766E !important;
+}
+
+[data-theme="light"] .text-\[\#7CCBFF\]\/80 {
+  color: #0369A1 !important;
+}
+
+@keyframes boxPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.84);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-box-capture {
+  animation: boxPopIn 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scorePop {
+  0% {
+    opacity: 0.45;
+    transform: translateY(8px) scale(0.78);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.22);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes scoreDeltaFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.85);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0px) scale(1.05);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.95);
+  }
+}
+
+.animate-score-pop {
+  animation: scorePop 320ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-score-delta {
+  animation: scoreDeltaFloat 650ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-box-capture,
+  .animate-score-pop,
+  .animate-score-delta {
+    animation: none;
+  }
+}
